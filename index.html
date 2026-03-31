@@ -1,101 +1,90 @@
 <!doctype html>
 <html lang="pl">
 <head>
-  <title>ZBYCHOWANIE 2026 - WROCŁAW EDITION</title>
+  <title>Zbychowanie2026</title>
   <meta charset='UTF-8'>
   <style>
-    /* Twoje ulubione kolory i styl */
     html, body {
-      width: 100%; height: 100%; margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       overflow: hidden;
-      background: linear-gradient(135deg, #87CEEB 0%, #5f9ea0 100%); /* Nowoczesny jasnoniebieski gradient */
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      background-color: #f0f0f0;
     }
-
-    /* Animacja mrugania tekstu */
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
-    }
-
-    .container {
+    .hello-message {
+      margin: 40px;
       text-align: center;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 40px;
-      border-radius: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      border: 5px solid white;
-      z-index: 10;
     }
-
-    h1 { font-size: 3rem; margin-bottom: 10px; color: #005f87; }
-    h2 { font-size: 1.5rem; color: #d63031; animation: blink 1s infinite; }
-
-    #emoji-btn {
-      font-size: 120px;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-    }
-
-    #emoji-btn:hover { transform: scale(1.2) rotate(5deg); }
-    #emoji-btn:active { transform: scale(0.9); }
-
     .logout-messages {
-      position: fixed; top: 15px; left: 15px;
-      color: #ff0000; font-weight: bold; font-family: monospace;
-      font-size: 16px; pointer-events: none;
-      background: rgba(0,0,0,0.1); padding: 5px;
+      pointer-events: none;
+      color: red;
+      margin: 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-weight: bold;
+      z-index: 9999;
+      text-shadow: 2px 2px #FFF, 4px 4px 10px #000;
     }
-
-    /* Efekt usterki w tle */
-    #zbych-glitch {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; font-size: 20px; color: rgba(0,0,0,0.05);
-      display: flex; flex-wrap: wrap; overflow: hidden; z-index: 1;
+    img {
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      cursor: pointer;
     }
-
-    p { font-weight: bold; color: #555; }
+    h1 { color: #00aaff; }
+    
+    @keyframes blurslowly {
+      0% { filter: none; }
+      92% { filter: blur(0); }
+      96% { filter: blur(2px); }
+      100% { filter: blur(0); }
+    }
+    body {
+      animation: blurslowly 15s infinite;
+    }
   </style>
-  <meta name="theme-color" content="#87CEEB">
+  
+  <link rel="icon" type="image/png" href="Zbych.png">
+
+  <meta property="og:title" content="Zbychowanie2026" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="Zbych.png" />
+  <meta property="og:description" content="Wejdź i zobacz co przygotował Zbychu!" />
+  <meta name="theme-color" content="#00aaff">
 </head>
 <body>
 
-<div id="zbych-glitch"></div>
-<div class="logout-messages" id="status-box">SYSTEM: READY</div>
+<noscript>
+  <div style="text-align: center; margin-top: 50px;">
+    <h1>Włącz JavaScript!</h1>
+    <p>Bez tego Zbychu nie może Cię odwiedzić.</p>
+  </div>
+</noscript>
 
-<div class="container" id="main-ui">
-    <h1>SIEMANO, ANTEK!</h1>
-    <h2>KLIKNIJ 3 RAZY W LUDZIKA...</h2>
-    <div id="emoji-btn">🧍</div>
-    <p>...jeśli się nie boisz!</p>
-</div>
+<template id="main-template">
+  <div class='hello-message'>
+    <h1>Siemano kolano w Zbychowanie2026!</h1>
+    <h2>We no walnij 3 razy w spacje...</h2>
+    <h3>(albo kliknij w Zbycha poniżej)</h3>
 
-<script src='Index.js'></script>
+    <img src='Zbych.png' alt='Zbychu' id="start-img" />
+  </div>
+  
+  <div class='logout-messages'></div>
+</template>
+
+<div id="app"></div>
 
 <script>
-  // Dodatkowy efekt: Spacja też nabija kliknięcia
-  window.addEventListener('keydown', (e) => {
-    if (e.code === "Space") {
-      document.getElementById('emoji-btn').click();
-    }
-  });
-
-  // Wypełnienie tła losowymi znakami
-  const glitchBox = document.getElementById('zbych-glitch');
-  for(let i=0; i<100; i++) {
-    const span = document.createElement('span');
-    span.innerText = " ZBYCH ";
-    glitchBox.appendChild(span);
-  }
+  // Mały pomocnik, który ładuje template do DOM
+  const temp = document.getElementById('main-template');
+  const clon = temp.content.cloneNode(true);
+  document.getElementById('app').appendChild(clon);
 </script>
+
+<script src='Index.js'></script>
 
 </body>
 </html>
