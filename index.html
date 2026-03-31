@@ -4,39 +4,98 @@
   <title>ZBYCHOWANIE 2026 - WROCŁAW EDITION</title>
   <meta charset='UTF-8'>
   <style>
+    /* Twoje ulubione kolory i styl */
     html, body {
       width: 100%; height: 100%; margin: 0;
-      font-family: sans-serif; overflow: hidden;
-      background-color: #87CEEB; /* Twój ulubiony jasnoniebieski */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      background: linear-gradient(135deg, #87CEEB 0%, #5f9ea0 100%); /* Nowoczesny jasnoniebieski gradient */
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
-    .hello-message { margin-top: 100px; text-align: center; }
-    #emoji-btn { font-size: 100px; cursor: pointer; user-select: none; transition: 0.2s; }
-    #emoji-btn:hover { transform: scale(1.1); }
+
+    /* Animacja mrugania tekstu */
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      border: 5px solid white;
+      z-index: 10;
+    }
+
+    h1 { font-size: 3rem; margin-bottom: 10px; color: #005f87; }
+    h2 { font-size: 1.5rem; color: #d63031; animation: blink 1s infinite; }
+
+    #emoji-btn {
+      font-size: 120px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+    }
+
+    #emoji-btn:hover { transform: scale(1.2) rotate(5deg); }
+    #emoji-btn:active { transform: scale(0.9); }
+
     .logout-messages {
-      position: fixed; top: 10px; left: 10px;
-      color: red; font-weight: bold; font-size: 14px; pointer-events: none;
-      text-shadow: 1px 1px white;
+      position: fixed; top: 15px; left: 15px;
+      color: #ff0000; font-weight: bold; font-family: monospace;
+      font-size: 16px; pointer-events: none;
+      background: rgba(0,0,0,0.1); padding: 5px;
     }
+
+    /* Efekt usterki w tle */
     #zbych-glitch {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; font-size: 30px; color: rgba(0,0,0,0.3);
-      display: flex; flex-wrap: wrap; overflow: hidden;
+      pointer-events: none; font-size: 20px; color: rgba(0,0,0,0.05);
+      display: flex; flex-wrap: wrap; overflow: hidden; z-index: 1;
     }
+
+    p { font-weight: bold; color: #555; }
   </style>
   <meta name="theme-color" content="#87CEEB">
 </head>
 <body>
 
-<div class='hello-message' id="main-ui">
-    <h1>SIEMANO KOLANO, ANTEK!</h1>
-    <h2>Kliknij 3x w człowieka 🧍 albo raz w SPACJĘ!</h2>
+<div id="zbych-glitch"></div>
+<div class="logout-messages" id="status-box">SYSTEM: READY</div>
+
+<div class="container" id="main-ui">
+    <h1>SIEMANO, ANTEK!</h1>
+    <h2>KLIKNIJ 3 RAZY W LUDZIKA...</h2>
     <div id="emoji-btn">🧍</div>
-    <p>(Tylko dla odważnych...)</p>
+    <p>...jeśli się nie boisz!</p>
 </div>
 
-<div class="logout-messages" id="status-box"></div>
-<div id="zbych-glitch"></div>
+<script src='Index.js'></script>
 
-<script src='index.js'></script>
+<script>
+  // Dodatkowy efekt: Spacja też nabija kliknięcia
+  window.addEventListener('keydown', (e) => {
+    if (e.code === "Space") {
+      document.getElementById('emoji-btn').click();
+    }
+  });
+
+  // Wypełnienie tła losowymi znakami
+  const glitchBox = document.getElementById('zbych-glitch');
+  for(let i=0; i<100; i++) {
+    const span = document.createElement('span');
+    span.innerText = " ZBYCH ";
+    glitchBox.appendChild(span);
+  }
+</script>
+
 </body>
 </html>
