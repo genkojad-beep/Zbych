@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <title>ZBYCHOWANIE 2026 - WROCŁAW EDITION</title>
+  <meta charset='UTF-8'>
+  <style>
+    html, body {
+      width: 100%; height: 100%; margin: 0;
+      font-family: sans-serif; overflow: hidden;
+      background-color: #87CEEB; /* Twój ulubiony jasnoniebieski */
+    }
+    .hello-message { margin-top: 100px; text-align: center; }
+    #emoji-btn { font-size: 100px; cursor: pointer; user-select: none; transition: 0.2s; }
+    #emoji-btn:hover { transform: scale(1.1); }
+    .logout-messages {
+      position: fixed; top: 10px; left: 10px;
+      color: red; font-weight: bold; font-size: 14px; pointer-events: none;
+      text-shadow: 1px 1px white;
+    }
+    #zbych-glitch {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; font-size: 30px; color: rgba(0,0,0,0.3);
+      display: flex; flex-wrap: wrap; overflow: hidden;
+    }
+  </style>
+  <meta name="theme-color" content="#87CEEB">
+</head>
+<body>
+
+<div class='hello-message' id="main-ui">
+    <h1>SIEMANO KOLANO, ANTEK!</h1>
+    <h2>Kliknij 3x w człowieka 🧍 albo raz w SPACJĘ!</h2>
+    <div id="emoji-btn">🧍</div>
+    <p>(Tylko dla odważnych...)</p>
+</div>
+
+<div class="logout-messages" id="status-box"></div>
+<div id="zbych-glitch"></div>
+
+<script src='index.js'></script>
+</body>
+</html>
