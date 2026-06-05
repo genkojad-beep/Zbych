@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZbychCraft.pl - Centrum Pobierania, Poradniki, Silniki i Optymalizacja Minecraft</title>
+    <meta name="description" content="Oficjalne repozytorium ZbychCraft.pl. Pobierz pluginy, launchery, mody Fabric, OptiFine oraz najlepsze paczki tekstur PvP. Rozwiązania błędów (Exit Code 1), flagi Aikara i konfiguracja Javy.">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-color: #161b22;
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --btn-hover: #1f6feb;
+            --table-header: #21262d;
+            --success-color: #238636;
+            --success-hover: #2ea043;
+            --danger-color: #f85149;
+            --code-color: #ff7b72;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 1rem;
+            text-align: center;
+            background-color: var(--container-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 0.75rem 0 0 0;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: var(--table-header);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-top: 4.5rem;
+            scroll-margin-top: 70px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+        }
+
+        .card-header h3 {
+            margin: 0 0 0.5rem 0;
+            color: #ffffff;
+            font-size: 1.3rem;
+        }
+
+        .card-header .version {
+            font-size: 0.85rem;
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-body {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: auto;
+            margin-bottom: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.75rem;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        .btn-success { background-color: var(--success-color); }
+        .btn-success:hover { background-color: var(--success-hover); }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+        .btn-secondary:hover { background-color: var(--border-color); }
+
+        /* PORADNIKI & ROZWIĄZANIA BŁĘDÓW */
+        .guide-box {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .guide-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .error-tag {
+            background-color: rgba(248, 81, 73, 0.1);
+            color: var(--danger-color);
+            border: 1px solid var(--danger-color);
+            padding: 0.2rem 0.6rem;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-family: monospace;
+        }
+
+        .guide-steps {
+            padding-left: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .guide-steps li {
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .guide-steps li strong { color: #ffffff; }
+
+        code {
+            background-color: var(--bg-color);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--code-color);
+            font-size: 0.9rem;
+        }
+
+        .copy-block {
+            position: relative;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        pre {
+            margin: 0;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: monospace;
+            color: #79c0ff;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        /* TABELA */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        .table-link { color: var(--accent-color); text-decoration: none; }
+        .table-link:hover { text-decoration: underline; }
+
+        /* FAQ */
+        .faq-item {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            font-size: 1.15rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .alert-box {
+            background-color: rgba(240, 179, 57, 0.1);
+            border: 1px solid #f0b339;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            color: #f0b339;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ZbychCraft</h1>
+        <p>Encyklopedia Minecraft – Silniki, Launchery, Naprawa Błędów, Mody i Optymalizacja</p>
+    </header>
+
+    <nav>
+        <a href="#pluginy">Autorskie Pluginy</a>
+        <a href="#silniki">Silniki Serwerowe</a>
+        <a href="#launchery">Launchery</a>
+        <a href="#optifine">OptiFine</a>
+        <a href="#mody-fabric">Mody Fabric</a>
+        <a href="#naprawa-bledow">Rozwiązania Błędów</a>
+        <a href="#flagi-java">Flagi i RAM</a>
+        <a href="#wersje-java">Wersje Java</a>
+        <a href="#poradniki-instalacji">Instrukcje Instalacji</a>
+        <a href="#komendy-mc">Komendy i WorldEdit</a>
+        <a href="#paczki-txt">Paczki PvP</a>
+        <a href="#testy-lacza">Testy Łącza i Ping</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+
+    <main>
+        
+        <!-- AUTORSKIE PLUGINY -->
+        <section id="pluginy">
+            <h2 class="section-title">Autorskie Pluginy Spigot / Paper</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>AntekSklep</h3>
+                        <div class="version">Paper 1.20.4 (v7.1) .JAR</div>
+                    </div>
+                    <div class="card-body">
+                        Kompletny system ekonomii serwerowej zawierający wirtualne portfele graczy, zautomatyzowane menu GUI, przelewy, bezpieczną naprawę przedmiotów oraz pełną obsługę doładowań z poziomu RCON i konsoli serwera.
+                    </div>
+                    <a href="AntekSklep-1.0.jar" class="btn">Pobierz plugin</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>LootBoxPlugin</h3>
+                        <div class="version">Paper 1.20.4 (v18.0) .JAR</div>
+                    </div>
+                    <div class="card-body">
+                        Zaawansowane skrzynie z nagrodami. Posiada wbudowany system graficznego podglądu dropów w GUI, mechanikę kluczy oraz animowaną ruletkę losowania wyświetlaną na trójwymiarowych stojakach nad głowami graczy.
+                    </div>
+                    <a href="KitsPlugin.jar" class="btn">Pobierz plugin</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>ZmiankiPlus</h3>
+                        <div class="version">Paper 1.20.4 (v2.0) .JAR</div>
+                    </div>
+                    <div class="card-body">
+                        Rozszerzenie mechaniki PvP wprowadzające system ulepszania broni i zbroi u kowala za pomocą diamentów. Zapewnia losowe, procentowe bonusy do obrażeń lub ochrony oraz unikalny system bojowych papug naramiennych.
+                    </div>
+                    <a href="ZmiankiPlus-1.0.jar" class="btn">Pobierz plugin</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Excalibur</h3>
+                        <div class="version">Paper 1.20.4 .JAR</div>
+                    </div>
+                    <div class="card-body">
+                        Narzędzie dodające legendarny oręż za pomocą komendy /dajmiecz. Miecz posiada zniesione limity zaklęć (Ostrość VIII, Niezniszczalność V, Zaklęty Ogień IV, Mending) oraz modyfikator dodający 2 bonusowe serca życia podczas trzymania broni.
+                    </div>
+                    <a href="Excalibur.jar" class="btn">Pobierz plugin</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SILNIKI SERWEROWE -->
+        <section id="silniki">
+            <h2 class="section-title">Wydajne Silniki Serwerowe Minecraft</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Wybór odpowiedniego rdzenia serwera decyduje o stabilności, braku lagów (TPS na poziomie 20.0) oraz optymalizacji wątków procesora.</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>PaperMC</h3>
+                        <div class="version">Zalecany do pluginów</div>
+                    </div>
+                    <div class="card-body">
+                        Najpopularniejszy silnik serwerowy będący bezpośrednim, znacznie lepiej zoptymalizowanym rozwinięciem projektów Spigot i Bukkit. Drastycznie naprawia błędy z ładowaniem chunków i sztuczną inteligencją mobów.
+                    </div>
+                    <a href="https://papermc.io/" target="_blank" class="btn btn-success">Pobierz silnik Paper</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>PurpurMC</h3>
+                        <div class="version">Maksymalna wydajność + Customizacja</div>
+                    </div>
+                    <div class="card-body">
+                        Fork silnika Pufferfish i Paper. Wprowadza setki dodatkowych opcji konfiguracyjnych w pliku <code>purpur.yml</code>, pozwalając na modyfikowanie podstawowych mechanik gry oraz zaawansowaną optymalizację pod serwery PvP i Survival.
+                    </div>
+                    <a href="https://purpurmc.org/" target="_blank" class="btn btn-success">Pobierz silnik Purpur</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Velocity</h3>
+                        <div class="version">Silnik Proxy (BungeeCord)</div>
+                    </div>
+                    <div class="card-body">
+                        Nowoczesny, niesamowicie szybki i bezpieczny silnik proxy służący do łączenia wielu serwerów Minecraft (np. Lobby, BedWars, PvP) w jedną wspólną sieć. Posiada wbudowaną ochronę przed atakami DOS.
+                    </div>
+                    <a href="https://papermc.io/software/velocity" target="_blank" class="btn btn-secondary">Pobierz silnik Velocity</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Folia</h3>
+                        <div class="version">Wielowątkowość eksperymentalna</div>
+                    </div>
+                    <div class="card-body">
+                        Przełomowy projekt od twórców Paper, który dodaje do serwera pełną wielowątkowość. Każdy region świata gry obliczany jest na osobnym wątku procesora, co pozwala na jednoczesną grę setkom graczy bez utraty wydajności.
+                    </div>
+                    <a href="https://github.com/PaperMC/Folia" target="_blank" class="btn btn-secondary">Repozytorium Folia</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- LAUNCHERY -->
+        <section id="launchery">
+            <h2 class="section-title">Launchery Wspierające Konta Premium i Non-Premium</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Lunar Client</h3>
+                        <div class="version">Status: Tylko Premium</div>
+                    </div>
+                    <div class="card-body">
+                        Absolutny król rywalizacji PvP. Posiada zamknięty, autorski silnik optymalizacji renderowania oraz doskonałą rejestrację uderzeń na serwerach sieciowych. Wymaga oficjalnej licencji Microsoft.
+                    </div>
+                    <a href="https://www.lunarclient.com/" target="_blank" class="btn btn-secondary">Odwiedź stronę</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Badlion Client</h3>
+                        <div class="version">Status: Premium i Non-Premium</div>
+                    </div>
+                    <div class="card-body">
+                        Największa wbudowana baza konfiguracji modów pvp na rynku. Oferuje oficjalne wsparcie dla profili ułatwiających pojedynki oraz zintegrowany system zabezpieczeń anty-cheat.
+                    </div>
+                    <a href="https://www.badlion.net/" target="_blank" class="btn btn-secondary">Odwiedź stronę</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Salwyrr Client</h3>
+                        <div class="version">Status: Premium i Non-Premium</div>
+                    </div>
+                    <div class="card-body">
+                        Jeden z najbardziej stabilnych, lekkich i zoptymalizowanych launcherów stworzonych z myślą o płynnej grze bez oficjalnego profilu premium. Posiada własny system przylądków.
+                    </div>
+                    <a href="https://www.salwyrr.com/" target="_blank" class="btn btn-secondary">Odwiedź stronę</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>TLauncher</h3>
+                        <div class="version">Status: Premium i Non-Premium</div>
+                    </div>
+                    <div class="card-body">
+                        Umożliwia łatwą instalację dowolnej wersji gry, instalację paczek modów jednym kliknięciem oraz wspiera system customowych skinów.
+                    </div>
+                    <a href="https://tlauncher.org/" target="_blank" class="btn btn-secondary">Odwiedź stronę</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Crystal Launcher</h3>
+                        <div class="version">Status: Premium i Non-Premium</div>
+                    </div>
+                    <div class="card-body">
+                        Polski, niezwykle rozbudowany launcher oferujący pełne wsparcie dla graczy bez konta premium. Posiada katalog gotowych paczek modyfikacji.
+                    </div>
+                    <a href="https://crystal-launcher.pl/" target="_blank" class="btn btn-secondary">Odwiedź stronę</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>SKLauncher</h3>
+                        <div class="version">Status: Premium i Non-Premium</div>
+                    </div>
+                    <div class="card-body">
+                        Niezwykle czysty, nowoczesny i pozbawiony uciążliwych reklam launcher. Oferuje interfejs w stylu Material Design.
+                    </div>
+                    <a href="https://skmedix.pl/" target="_blank" class="btn btn-secondary">Odwiedź stronę</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- OPTIFINE -->
+        <section id="optifine">
+            <h2 class="section-title">OptiFine - Klasyczna Optymalizacja i Przylądki</h2>
+            <div class="grid">
+                <div class="card" style="grid-column: 1 / -1;">
+                    <div class="card-header">
+                        <h3>OptiFine HD Ultra</h3>
+                        <div class="version">Dostępny dla Forge / Standalone .JAR</div>
+                    </div>
+                    <div class="card-body">
+                        Najbardziej kultowy mod optymalizacyjny w historii Minecrafta. Dodaje pełne wsparcie dla tekstur HD, system dynamicznego oświetlenia, zaawansowane opcje renderowania mgły, chmur i wody oraz słynną funkcję przybliżenia ekranu (Zoom) pod klawiszem <code>C</code>. Pozwala także na wyświetlanie oficjalnych przylądków OptiFine.
+                    </div>
+                    <a href="https://optifine.net/downloads" target="_blank" class="btn">Pobierz z oficjalnej strony OptiFine</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- MODYFIKACJE OPTYMALIZACYJNE FABRIC -->
+        <section id="mody-fabric">
+            <h2 class="section-title">Kluczowe Narzędzia i Modyfikacje Optymalizacyjne (Fabric)</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nazwa Modyfikacji</th>
+                            <th>Funkcja w PvP</th>
+                            <th>Dlaczego jest kluczowa?</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Sodium</strong></td><td>Ekstremalna optymalizacja grafiki</td><td>Zastępuje standardowy silnik renderowania gry, dając ogromny skok klatek na sekundę.</td><td><a href="https://modrinth.com/mod/sodium" target="_blank" class="table-link">Modrinth</a></td></tr>
+                        <tr><td><strong>Lithium</strong></td><td>Optymalizacja fizyki i świata</td><td>Modyfikuje obliczenia fizyki, chunków oraz encji, eliminując nagłe mikroprzycięcia obrazu.</td><td><a href="https://modrinth.com/mod/lithium" target="_blank" class="table-link">Modrinth</a></td></tr>
+                        <tr><td><strong>Iris Shaders</strong></td><td>Zarządzanie shaderami</td><td>Pozwala na uruchamianie zaawansowanych paczek cieniujących przy zachowaniu wydajności Sodium.</td><td><a href="https://modrinth.com/mod/iris" target="_blank" class="table-link">Modrinth</a></td></tr>
+                        <tr><td><strong>Krypton</strong></td><td>Optymalizacja stosu sieciowego</td><td>Optymalizuje ruch pakietów sieciowych gry, pomagając w zachowaniu stabilniejszego pingu.</td><td><a href="https://modrinth.com/mod/krypton" target="_blank" class="table-link">Modrinth</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- ROZWIĄZANIA POPULARNYCH BŁĘDÓW (CRASH & ERROR FIXER) -->
+        <section id="naprawa-bledow">
+            <h2 class="section-title">Rozwiązywanie Problemów – Crash & Error Fixer</h2>
+            
+            <div class="guide-box">
+                <span class="error-tag">Minecraft closed with exit code: 1</span>
+                <h3>Jak naprawić błąd Exit Code 1?</h3>
+                <p>Ten błąd pojawia się najczęściej, gdy gra napotka niekompatybilne modyfikacje w folderze <code>mods</code> lub gdy używasz niewłaściwej wersji środowiska Java.</p>
+                <ol class="guide-steps">
+                    <li><strong>Sprawdź logi:</strong> Wejdź do folderu <code>.minecraft\crash-reports</code> i otwórz najnowszy plik tekstowy. Znajdziesz tam dokładną nazwę moda, który wywołał błąd.</li>
+                    <li><strong>Zaktualizuj lub usuń mody:</strong> Upewnij się, że KAŻDY mod w folderze pasuje dokładnie do Twojej wersji gry (np. nie mieszaj modów z wersji 1.20.2 z wersją 1.20.4).</li>
+                    <li><strong>Zaktualizuj sterowniki karty graficznej:</strong> Przestarzałe sterowniki GPU uniemożliwiają poprawne działanie nowych wersji bibliotek OpenGL.</li>
+                </ol>
+            </div>
+
+            <div class="guide-box">
+                <span class="error-tag">java.lang.NullPointerException / Out of Memory</span>
+                <h3>Brak pamięci RAM i błędy wskaźników</h3>
+                <p>Minecraft domyślnie przydziela tylko 1 lub 2 GB pamięci RAM, co przy zaawansowanych modach optymalizacyjnych lub paczkach tekstur HD powoduje natychmiastowe zawieszenie gry.</p>
+                <p><strong>Rozwiązanie:</strong> Zwiększ przydział pamięci RAM w ustawieniach instalacji swojego launchera (zalecana wartość to minimum 4 GB dla płynnej gry z modami).</p>
+            </div>
+        </section>
+
+
+        <!-- PARAMETRY STARTOWE (JAVA ARGUMENTS) -->
+        <section id="flagi-java">
+            <h2 class="section-title">Optymalizacja Parametrów Startowych – Flagi Aikara</h2>
+            <p style="color: var(--text-muted);">Wklejenie tych zaawansowanych parametrów w pole "Argumenty JVM" (Java Arguments) w launcherze drastycznie zoptymalizuje proces odśmiecania pamięci (Garbage Collector), co zlikwiduje mikroprzycięcia obrazu (Stuttering) podczas dynamicznych walk PvP.</p>
+            
+            <div class="copy-block">
+                <pre>-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1ReservePercent=20 -XX:G1HeapRegionSize=32m -XX:G1MixedGCCountTarget=8 -XX:InitiatingHeapOccupancyPercent=15</pre>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;"><em>Wskazówka: Aby zmienić przydział pamięci RAM, dodaj na samym początku parametr <code>-Xmx4G</code> (gdzie 4G oznacza przydzielenie 4 gigabajtów pamięci RAM).</em></p>
+        </section>
+
+
+        <!-- KONFIGURACJA JAVA -->
+        <section id="wersje-java">
+            <h2 class="section-title">Jaką wersję środowiska Java wybrać?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Nowe wersje Minecrafta nie uruchomią się na starej wersji Javy 8. Dopasuj środowisko JDK do wersji gry, na której grasz:</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Wersja Minecraft</th>
+                            <th>Wymagana Wersja Java</th>
+                            <th>Oficjalny Link do Pobrania (Bezpieczny OpenJDK)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1.8.9 – 1.16.5</strong></td>
+                            <td>Java 8 (Zulujdk / Oracle)</td>
+                            <td><a href="https://adoptium.net/temurin/releases/?version=8" target="_blank" class="table-link">Pobierz Java 8 OpenJDK</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>1.17 – 1.19.4</strong></td>
+                            <td>Java 17 (JDK 17)</td>
+                            <td><a href="https://adoptium.net/temurin/releases/?version=17" target="_blank" class="table-link">Pobierz Java 17 Eclipse Temurin</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>1.20.5+ / Nowsze</strong></td>
+                            <td>Java 21 (JDK 21)</td>
+                            <td><a href="https://adoptium.net/temurin/releases/?version=21" target="_blank" class="table-link">Pobierz Java 21 Eclipse Temurin</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- PORADNIKI INSTALACJI -->
+        <section id="poradniki-instalacji">
+            <h2 class="section-title">Instrukcje Krok po Kroku – Instalacja i Tworzenie Serwera</h2>
+            
+            <div class="guide-box">
+                <h3>Jak zainstalować mody do Minecrafta (Fabric / Forge)?</h3>
+                <ol class="guide-steps">
+                    <li>Pobierz i uruchom instalator silnika modów, np. <strong>Fabric Installer</strong> ze strony fabricmc.net.</li>
+                    <li>Wybierz docelową wersję gry (np. <code>1.20.4</code>) i kliknij <strong>Install</strong>.</li>
+                    <li>Uruchom okno poleceń systemu klikając <code>Win + R</code>, wpisz <code>%appdata%\.minecraft</code> i wciśnij Enter.</li>
+                    <li>Wklej pobrane pliki modów w formacie <code>.jar</code> bezpośrednio do folderu o nazwie <code>mods</code>.</li>
+                    <li>Uruchom launcher i włącz grę z nowo wygenerowanego profilu Fabric.</li>
+                </ol>
+            </div>
+
+            <div class="guide-box">
+                <h3>Jak zainstalować paczki tekstur (Resource Packs / TXT)?</h3>
+                <ol class="guide-steps">
+                    <li>Pobierz wybraną paczkę w formacie archiwum <code>.zip</code>. **Nie rozpakowuj jej!**</li>
+                    <li>W grze wejdź w <strong>Opcje (Options)</strong> -> <strong>Paczki zasobów (Resource Packs)</strong>.</li>
+                    <li>Kliknij przycisk <strong>Otwórz folder paczek (Open Pack Folder)</strong> i przeciągnij tam plik <code>.zip</code>.</li>
+                    <li>Aktywuj paczkę klikając ikonę strzałki, aby przenieść ją na listę po prawej stronie.</li>
+                </ol>
+            </div>
+
+            <div class="guide-box">
+                <h3>Jak stworzyć własny serwer Minecraft (Paper/Purpur)?</h3>
+                <ol class="guide-steps">
+                    <li>Stwórz nowy folder na dysku komputera i umieść w nim pobrany plik silnika, zmieniając jego nazwę na <code>server.jar</code>.</li>
+                    <li>W tym samym folderze stwórz plik tekstowy o nazwie <code>start.bat</code>, kliknij Edytuj i wklej skrypt:
+                        <pre>@echo off
+java -Xms2G -Xmx2G -jar server.jar nogui
+pause</pre>
+                    </li>
+                    <li>Odpalać serwer będziesz plikiem <code>start.bat</code>. Po pierwszym uruchomieniu otwórz plik <code>eula.txt</code> i zmień wartość na <code>eula=true</code>.</li>
+                </ol>
+            </div>
+
+            <div class="guide-box">
+                <h3>Jak zainstalować pluginy na serwerze?</h3>
+                <ol class="guide-steps">
+                    <li>Upewnij się, że Twój serwer działa na silniku obsługującym wtyczki (np. **Paper** lub **Purpur**).</li>
+                    <li>Pobierz plik pluginu z rozszerzeniem <code>.jar</code> (np. nasz autorski plik <code>AntekSklep-1.0.jar</code>).</li>
+                    <li>Przenieś plik bezpośrednio do katalogu o nazwie <code>plugins</code> w głównym folderze serwera.</li>
+                    <li>Zrestartuj serwer lub wpisz komendę <code>reload</code> w konsoli, aby załadować konfigurację.</li>
+                </ol>
+            </div>
+        </section>
+
+
+        <!-- SPIS NAJWAŻNIEJSZYCH KOMEND (CHEATSHEET) -->
+        <section id="komendy-mc">
+            <h2 class="section-title">Ściągawka z Komend – Konsola i WorldEdit</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Zestawienie komend administratury i podstawowych narzędzi do edycji struktur:</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kategoria</th>
+                            <th>Komenda</th>
+                            <th>Działanie i Opis Funkcji</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Zarządzanie</strong></td><td><code>/op [nick]</code></td><td>Nadaje pełne uprawnienia administratora serwera danemu graczowi.</td></tr>
+                        <tr><td><strong>Diagnostyka</strong></td><td><code>/timings on</code> / <code>/timings paste</code></td><td>Uruchamia zaawansowany test wydajności serwera i generuje raport o lagach.</td></tr>
+                        <tr><td><strong>WorldEdit</strong></td><td><code>//wand</code></td><td>Daje drewnianą siekierkę służącą do zaznaczania pozycji regionu (Pozycja 1 i Pozycja 2).</td></tr>
+                        <tr><td><strong>WorldEdit</strong></td><td><code>//set [blok]</code></td><td>Wypełnia cały zaznaczony obszar wybranym rodzajem bloku (np. <code>//set quartz_block</code>).</td></tr>
+                        <tr><td><strong>WorldEdit</strong></td><td><code>//copy</code> / <code>//paste</code></td><td>Kopiuje zaznaczoną strukturę względem pozycji gracza i wkleja ją w nowym miejscu.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- PACZKI TXT -->
+        <section id="paczki-txt">
+            <h2 class="section-title">Paczki Tekstur (TXT) 1.8.9 - BedWars, SkyWars, Duels</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Luvonox 150K Pack</h3>
+                        <div class="version">Modyfikacja .ZIP</div>
+                    </div>
+                    <div class="card-body">
+                        Niezwykle popularna i płynna paczka w czerwonej kolorystyce. Maksymalizuje FPS-y, ma świetnie wycięte miecze i low fire do walki.
+                    </div>
+                    <a href="https://pvprp.com/pack?p=392" target="_blank" class="btn btn-secondary">Pobierz Resource Pack</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>SammyGreen SammyFault</h3>
+                        <div class="version">Modyfikacja .ZIP</div>
+                    </div>
+                    <div class="card-body">
+                        Stworzony dla znanego YouTubera od BedWars. Charakteryzuje się wyrazistymi kolorami wełny i świetnie wyglądającymi narzędziami.
+                    </div>
+                    <a href="https://resourcepacks.gg/pl/packs/sammyfault-16x" target="_blank" class="btn btn-secondary">Pobierz Resource Pack</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TESTOWANIE POŁĄCZENIA SIECIOWEGO -->
+        <section id="testy-lacza">
+            <h2 class="section-title">Jak sprawdzić stabilność połączenia z serwerem (Ping & MTR)?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Jeśli podczas walki przeciwnicy cofają się lub Twoje uderzenia nie rejestrują się prawidłowo, problemem może być utrata pakietów (Packet Loss).</p>
+            <div class="guide-box">
+                <h3>Testowanie poleceniem Ping w Windows:</h3>
+                <ol class="guide-steps">
+                    <li>Otwórz menu Start, wpisz <code>cmd</code> i uruchom Wiersz Polecenia.</li>
+                    <li>Wpisz komendę testującą (zastąp adres ip adresem swojego ulubionego serwera):
+                        <pre>ping -t craftmc.pl</pre>
+                    </li>
+                    <li>Obserwuj wartość wyrażoną w milisekundach (np. <code>time=15ms</code>). Jeśli wartość nagle skacze do kilkuset milisekund lub pojawia się komunikat "Upłynął limit czasu żądania", oznacza to problemy po stronie Twojego dostawcy internetu.</li>
+                </ol>
+            </div>
+        </section>
+
+
+        <!-- SEKCJA FAQ -->
+        <section id="faq">
+            <h2 class="section-title">Najczęściej Zadawane Pytania (FAQ) – Centrum Pomocy</h2>
+            
+            <div class="faq-item">
+                <p class="faq-question">1. Jak zainstalować pobrane stąd paczki zasobów (Resource Packi)?</p>
+                <p class="faq-answer">Pobierz plik .zip, a następnie otwórz folder uruchamiania gry (w systemie Windows kliknij Win + R, wpisz %appdata%\.minecraft\resourcepacks i zatwierdź enterem). Przenieś tam pobrane archiwum. W grze przejdź do opcji, wybierz zakładkę paczek zasobów i aktywuj wybraną pozycję.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">2. Co zrobić, jeśli po włączeniu paczki zasobów 32x32 nie widzę customowego nieba?</p>
+                <p class="faq-answer">Większość zaawansowanych paczek PvP wymaga odpowiednich modyfikacji graficznych do renderowania niestandardowego nieba. Jeśli używasz czystego silnika Fabric z modem Sodium, musisz doinstalować modyfikację emulującą tę funkcję, na przykład Fabric SkyBoxes lub Animatica.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">3. Czym różni się silnik Fabric od Forge i który silnik wybrać do PvP?</p>
+                <p class="faq-answer">Forge to potężne środowisko, idealne pod ogromne modyfikacje techniczne i przygodowe. Do dynamicznej walki PvP zdecydowanie lepszym wyborem jest Fabric – jest niesamowicie lekki, uruchamia się kilkukrotnie szybciej i współpracuje z nowoczesnymi modami optymalizacyjnymi (takimi jak Sodium czy Lithium).</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">4. Czy gracze korzystający z launcherów Non-Premium mogą dołączyć na każdy serwer?</p>
+                <p class="faq-answer">Nie. Serwery Minecraft dzielą się na dwa główne typy: Premium (dostępne tylko dla osób posiadających oficjalne konto zakupione od Microsoft) oraz Non-Premium (gdzie właściciel wyłączył weryfikację kont w pliku konfiguracyjnym ustawiając parametr <code>online-mode=false</code>).</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zbychcraft.pl. Wszystkie materiały, silniki i poradniki zoptymalizowane pod algorytmy wyszukiwarki Google.</p>
+    </footer>
+
+</body>
+</html>
