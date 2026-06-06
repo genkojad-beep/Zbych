@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZbychCraft.pl - Lista Komend Minecraft: Spis i Opis</title>
+    <meta name="description" content="Oficjalne kompendium ZbychCraft.pl. Kompletna lista i opis najważniejszych komend w Minecraft. Podział na kategorie: administracja, budowanie, PvP i mechanika gry.">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-color: #161b22;
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --btn-hover: #1f6feb;
+            --table-header: #21262d;
+            --success-color: #238636;
+            --success-hover: #2ea043;
+            --danger-color: #f85149;
+            --code-color: #ff7b72;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 1rem;
+            text-align: center;
+            background-color: var(--container-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 0.75rem 0 0 0;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: var(--table-header);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-top: 4.5rem;
+            scroll-margin-top: 70px;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        tr:last-child td { border-bottom: none; }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            background-color: rgba(110, 118, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 6px;
+            color: var(--code-color);
+            font-size: 0.9rem;
+        }
+
+        .guide-box {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .guide-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ZbychCraft</h1>
+        <p>Biblioteka Wiedzy – Spis Najważniejszych Komend w Minecraft</p>
+    </header>
+
+    <nav>
+        <a href="#podstawowe">Komendy Podstawowe</a>
+        <a href="#zarzadzanie">Zarządzanie Światem</a>
+        <a href="#ekwipunek">Ekwipunek i Przedmioty</a>
+        <a href="#narzedzia-budowlane">Szybkie Budowanie</a>
+        <a href="index.html">Powrót do Strony Głównej</a>
+    </nav>
+
+    <main>
+
+        <section id="podstawowe">
+            <h2 class="section-title">1. Komendy Podstawowe i Tryby Gry</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">Komenda</th>
+                            <th>Opis Działania</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>/gamemode creative</code></td><td>Zmienia tryb gry na kreatywny (latanie, nieskończone bloki).</td></tr>
+                        <tr><td><code>/gamemode survival</code></td><td>Zmienia tryb gry na przetrwanie (zdobywanie surowców, walka, paski życia i głodu).</td></tr>
+                        <tr><td><code>/gamemode spectator</code></td><td>Tryb widza – pozwala na przenikanie przez bloki i obserwowanie mechanizmów oraz jaskiń.</td></tr>
+                        <tr><td><code>/difficulty &lt;poziom&gt;</code></td><td>Ustawia poziom trudności rozgrywki (np. <code>peaceful</code>, <code>easy</code>, <code>normal</code>, <code>hard</code>).</td></tr>
+                        <tr><td><code>/help</code> lub <code>/?</code></td><td>Wyświetla pełną listę wszystkich dostępnych komend na danym profilu lub serwerze.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="zarzadzanie">
+            <h2 class="section-title">2. Zarządzanie Światem i Czasem</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">Komenda</th>
+                            <th>Opis Działania</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>/time set day</code></td><td>Błyskawicznie ustawia czas w grze na poranek (wschód słońca).</td></tr>
+                        <tr><td><code>/time set night</code></td><td>Błyskawicznie zmienia porę dnia na noc.</td></tr>
+                        <tr><td><code>/weather clear</code></td><td>Wyłącza opady – przywraca czyste, słoneczne niebo.</td></tr>
+                        <tr><td><code>/weather rain</code></td><td>Uruchamia standardowy opad deszczu (lub śniegu w zimowych biomach).</td></tr>
+                        <tr><td><code>/tp &lt;gracz&gt; &lt;x&gt; &lt;y&gt; &lt;z&gt;</code></td><td>Teleeportuje wskazanego gracza na podane współrzędne geograficzne świata.</td></tr>
+                        <tr><td><code>/gamerule keepInventory true</code></td><td>Włącza kluczową regułę gry – po śmierci gracz nie traci swoich przedmiotów i punktów doświadczenia.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="ekwipunek">
+            <h2 class="section-title">3. Ekwipunek, Przedmioty i Efekty</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">Komenda</th>
+                            <th>Opis Działania</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>/give &lt;gracz&gt; &lt;nazwa_bloku&gt;</code></td><td>Przekazuje graczowi konkretny przedmiot przy użyciu jego oficjalnej nazwy tekstowej (np. <code>/give @s white_concrete</code>).</td></tr>
+                        <tr><td><code>/clear &lt;gracz&gt;</code></td><td>Całkowicie czyszczenie ekwipunku ze wszystkich posiadanych przedmiotów.</td></tr>
+                        <tr><td><code>/effect give &lt;gracz&gt; &lt;efekt&gt;</code></td><td>Nakłada na postać określony stan (np. <code>speed</code>, <code>strength</code>, <code>night_vision</code>) na określony czas.</td></tr>
+                        <tr><td><code>/xp add &lt;gracz&gt; &lt;ilość&gt;</code></td><td>Dodaje wskazanemu graczowi określoną liczbę punktów doświadczenia (XP).</td></tr>
+                        <tr><td><code>/kill &lt;cel&gt;</code></td><td>Natychmiastowo likwiduje wybranego gracza lub moba (użycie <code>/kill @e[type=!player]</code> usuwa wszystkie potwory z otoczenia).</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="narzedzia-budowlane">
+            <h2 class="section-title">4. Wskazówki Techniczne dla Budowniczych</h2>
+            <div class="guide-box">
+                <h3>Szybkie operowanie strukturami (Komenda /fill):</h3>
+                <p>Do sprawnego tworzenia dużych obiektów (np. fundamentów, ścian willi czy obrysów ogrodzeń) idealnie nadaje się wbudowana w czystą grę komenda <code>/fill</code>. Pozwala ona na błyskawiczne wypełnianie całych obszarów bez używania zewnętrznych modów:</p>
+                <p><strong>Składnia:</strong> <code>/fill &lt;x1&gt; &lt;y1&gt; &lt;z1&gt; &lt;x2&gt; &lt;y2&gt; &lt;z2&gt; &lt;nazwa_bloku&gt;</code></p>
+                <p>Przykład użycia: Aby postawić potężną ścianę z białego betonu, wystarczy stanąć w pierwszym rogu, spisać współrzędne z ekranu pod klawiszem F3, przejść do przeciwległego rogu i wpisać np. <code>/fill 10 64 10 20 74 10 white_concrete</code>. Znacznie przyspiesza to prace architektoniczne!</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zbychcraft.pl. Zestawienie komend zoptymalizowane pod kątem szybkiego przeszukiwania podczas rozgrywki.</p>
+    </footer>
+
+</body>
+</html>

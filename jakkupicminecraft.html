@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZbychCraft.pl - Jak Kupić Minecraft? Poradnik Krok po Kroku</title>
+    <meta name="description" content="Oficjalny poradnik ZbychCraft.pl. Dowiedz się, jak bezpiecznie kupić oryginalnego Minecrafta na PC, uniknąć oszustw i założyć konto Microsoft.">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-color: #161b22;
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --btn-hover: #1f6feb;
+            --table-header: #21262d;
+            --success-color: #238636;
+            --success-hover: #2ea043;
+            --warning-color: #d29922;
+            --danger-color: #f85149;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 1rem;
+            text-align: center;
+            background-color: var(--container-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 0.75rem 0 0 0;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: var(--table-header);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-top: 4.5rem;
+            scroll-margin-top: 70px;
+        }
+
+        .guide-box {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .guide-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .guide-steps {
+            padding-left: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .guide-steps li {
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .guide-steps strong {
+            color: #ffffff;
+        }
+
+        .alert-box {
+            background-color: rgba(210, 153, 34, 0.1);
+            border: 1px solid var(--warning-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+        }
+
+        .alert-box h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--warning-color);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            text-align: center;
+            background-color: var(--success-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: var(--success-hover);
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .info-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ZbychCraft</h1>
+        <p>Poradnik Zakupu – Jak Bezpiecznie Kupić Oryginalny Minecraft?</p>
+    </header>
+
+    <nav>
+        <a href="#oficjalna-metoda">Instrukcja Krok po Kroku</a>
+        <a href="#co-zawiera">Co otrzymujesz w pakiecie?</a>
+        <a href="#ostrzeżenia">Jak uniknąć oszustw?</a>
+        <a href="index.html">Powrót do Strony Głównej</a>
+    </nav>
+
+    <main>
+
+        <section id="oficjalna-metoda">
+            <h2 class="section-title">Oficjalny Zakup na Minecraft.net</h2>
+            <div class="guide-box">
+                <h3>Instrukcja zakupu wersji na PC (Java & Bedrock Edition):</h3>
+                <ol class="guide-steps">
+                    <li><strong>Wejdź na oficjalną stronę:</strong> Przejdź pod adres <a href="https://www.minecraft.net/" target="_blank" style="color: var(--accent-color); text-decoration: none;">minecraft.net</a>. To jedyne w 100% bezpieczne źródło dystrybucji cyfrowej.</li>
+                    <li><strong>Zaloguj lub załóż konto Microsoft:</strong> Kliknij przycisk „Zaloguj się” w prawym górnym rogu. Jeśli nie posiadasz konta Microsoft (używanego m.in. do Windowsa czy konsoli Xbox), utwórz je za darmo. Wszystkie licencje gry są przypisywane bezpośrednio do konta Microsoft.</li>
+                    <li><strong>Wybierz edycję gry:</strong> Kliknij przycisk „Kup Minecraft”. Wybierz wersję na <strong>Komputer PC</strong>. Obecnie gra sprzedawana jest w pakiecie łączonym: kupując raz, otrzymujesz zarówno wersję <strong>Java Edition</strong> (najlepszą pod mody, PvP i serwery społecznościowe), jak i <strong>Bedrock Edition</strong> (zoptymalizowaną pod cross-play z konsolami i telefonami).</li>
+                    <li><strong>Wybierz metodę płatności:</strong> System przekieruje Cię do bezpiecznej bramki płatniczej Microsoftu. Możesz zapłacić za pomocą karty płatniczej (debetowej/kredytowej), systemu PayPal, bądź oficjalnej karty podarunkowej z kodem zakupionej w elektromarkecie.</li>
+                    <li><strong>Pobierz Launcher:</strong> Po sfinalizowaniu płatności Twoje konto otrzyma dożywotnią licencję. Pobierz oficjalny instalator Minecraft ze strony lub ze sklepu Microsoft Store, zaloguj się i ciesz się pełną, oryginalną wersją gry!</li>
+                </ol>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="https://www.minecraft.net/store/minecraft-deluxe-collection-pc" target="_blank" class="btn">Przejdź do sklepu Minecraft.net</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="co-zawiera">
+            <h2 class="section-title">Co wchodzi w skład oficjalnej licencji?</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h4>Minecraft: Java Edition</h4>
+                    <p>Klasyczna wersja na komputery (Windows, macOS, Linux). Daje pełen dostęp do modyfikacji, shaderów, tekstur oraz największych serwerów multiplayer i minigier.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Minecraft: Bedrock Edition</h4>
+                    <p>Wersja dla systemu Windows o potężnej optymalizacji kodu. Umożliwia płynną grę wieloosobową ze znajomymi grającymi na konsolach PlayStation, Xbox, Nintendo Switch oraz smartfonach.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Unikalny Nick i Skin</h4>
+                    <p>Możliwość ustawienia własnego, stałego pseudonimu widocznego dla wszystkich oraz bezproblemowa zmiana skórek (skinów) bez potrzeby używania zewnętrznych launcherów.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ostrzeżenia">
+            <h2 class="section-title">Ważne: Jak nie dać się oszukać?</h2>
+            <div class="alert-box">
+                <h4>
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display:inline-block; vertical-align:middle;">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                    Uwaga na podejrzanie tanie oferty!
+                </h4>
+                <p>Na portalach aukcyjnych bardzo często można spotkać oferty typu "Konto Minecraft Premium za 5 lub 10 zł". <strong>Unikaj ich za wszelką cenę!</strong> Są to najczęściej współdzielone, kradzione konta, do których dostęp jest blokowany po kilku dniach, a kupujący traci dostęp do swoich światów i postępów na serwerach.</p>
+                <p style="margin-bottom: 0; margin-top: 0.5rem;">Bezpiecznym i legalnym sposobem na tańszą grę (poza oficjalnymi wyprzedażami Mojang) jest zakup subskrypcji <strong>PC Game Pass</strong> od Microsoftu – Minecraft jest w niej dostępny w ramach miesięcznego abonamentu.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zbychcraft.pl. Wszystkie poradniki są aktualizowane na bieżąco, aby zapewnić bezpieczeństwo transakcji i ochronę kont graczy.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZbychCraft.pl - Najlepsze Launchery Premium Minecraft</title>
+    <meta name="description" content="Oficjalne repozytorium ZbychCraft.pl. Pobierz najlepsze launchery Minecraft Premium: Prism Launcher, Modrinth App, Lunar Client i Badlion. Maksymalne FPS, mody PvP i bezpieczeństwo.">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-color: #161b22;
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --btn-hover: #1f6feb;
+            --table-header: #21262d;
+            --success-color: #238636;
+            --success-hover: #2ea043;
+            --danger-color: #f85149;
+            --code-color: #ff7b72;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 1rem;
+            text-align: center;
+            background-color: var(--container-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 0.75rem 0 0 0;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: var(--table-header);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-top: 4.5rem;
+            scroll-margin-top: 70px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+        }
+
+        .card-header h3 {
+            margin: 0 0 0.5rem 0;
+            color: #ffffff;
+            font-size: 1.3rem;
+        }
+
+        .card-header .version {
+            font-size: 0.85rem;
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-body {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        .btn-success { background-color: var(--success-color); }
+        .btn-success:hover { background-color: var(--success-hover); }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+        .btn-secondary:hover { background-color: var(--border-color); }
+
+        .guide-box {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .guide-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .guide-steps {
+            padding-left: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .guide-steps li {
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        .table-link { color: var(--accent-color); text-decoration: none; }
+        .table-link:hover { text-decoration: underline; }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ZbychCraft</h1>
+        <p>Centrum Pobierania – Zaawansowane Launchery Minecraft Premium</p>
+    </header>
+
+    <nav>
+        <a href="#premium-launchery">Zalecane Launchery Premium</a>
+        <a href="#porownanie-premium">Tabela Wydajności</a>
+        <a href="#bezpieczenstwo">Dlaczego warto używać klientów Premium?</a>
+        <a href="index.html">Powrót do Strony Głównej</a>
+    </nav>
+
+    <main>
+        
+        <section id="premium-launchery">
+            <h2 class="section-title">Profesjonalne Klienty i Launchery (Wymagane Konto Microsoft)</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Prism Launcher</h3>
+                        <div class="version">Status: Premium (Najlepszy do instancji i modów)</div>
+                    </div>
+                    <div class="card-body">
+                        Potężny, otwartoźródłowy launcher bazujący na legendarnym PolyMC. Pozwala na tworzenie nieskończonej liczby niezależnych profili (instancji). Posiada bezpośrednią integrację z bazami Modrinth i CurseForge, dzięki czemu mody, paczki zasobów i shadery instalujesz jednym kliknięciem bez otwierania przeglądarki.
+                    </div>
+                    <a href="https://prismlauncher.org/" target="_blank" class="btn btn-success">Pobierz Prism Launcher</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Lunar Client</h3>
+                        <div class="version">Status: Premium (Król wydajności i PvP)</div>
+                    </div>
+                    <div class="card-body">
+                        Najpopularniejszy klient stworzony z myślą o trybach PvP. Automatycznie optymalizuje silnik gry, wyciągając maksymalną liczbę FPS-ów na każdym sprzęcie. Oferuje ogromny zestaw wbudowanych modyfikacji (m.in. CPS counter, Keystrokes, optymalizacja pamięci) oraz własny system kosmetyczny (pelerynki, skrzydełka).
+                    </div>
+                    <a href="https://www.lunarclient.com/" target="_blank" class="btn btn-success">Pobierz Lunar Client</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Modrinth App</h3>
+                        <div class="version">Status: Premium (Nowoczesność i Szybkość)</div>
+                    </div>
+                    <div class="card-body">
+                        Oficjalna, ultra-szybka aplikacja od platformy Modrinth. Posiada piękny, nowoczesny interfejs i działa błyskawicznie. Idealna do natychmiastowego pobierania najnowszych paczek optymalizacyjnych (np. Sodium, Lithium) oraz aktualizowania zainstalowanych modów za pomocą jednego przycisku.
+                    </div>
+                    <a href="https://modrinth.com/app" target="_blank" class="btn btn-secondary">Pobierz Modrinth App</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Badlion Client</h3>
+                        <div class="version">Status: Premium (Zaawansowane PvP i Anticheat)</div>
+                    </div>
+                    <div class="card-body">
+                        Kolejny potężny klient dla graczy rywalizacyjnych. Oferuje setki modyfikacji z możliwością głębokiej personalizacji wyglądu UI, wbudowane potężne zwiększenie płynności gry oraz zintegrowany system anty-cheat (BAC), który jest wymagany na wielu profesjonalnych turniejach Minecraft.
+                    </div>
+                    <a href="https://client.badlion.net/" target="_blank" class="btn btn-secondary">Pobierz Badlion Client</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="porownanie-premium">
+            <h2 class="section-title">Porównanie Funkcji Launcherów Premium</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nazwa Launchera</th>
+                            <th>Główne Przeznaczenie</th>
+                            <th>Modyfikacje PvP</th>
+                            <th>Zarządzanie Paczkami Modów</th>
+                            <th>Izolowane Instancje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Prism Launcher</strong></td><td>Zarządzanie modami i profilami</td><td>Ręczne (Przez Fabric/Forge)</td><td>Perfekcyjne (Wbudowana wyszukiwarka)</td><td>Tak (Pełna izolacja)</td></tr>
+                        <tr><td><strong>Lunar Client</strong></td><td>Maksymalne FPS / Tryby PvP</td><td>Tak (Gotowy zestaw modów)</td><td>Ograniczone (Tylko oficjalne)</td><td>Nie</td></tr>
+                        <tr><td><strong>Modrinth App</strong></td><td>Lekki, nowoczesny start gry</td><td>Ręczne (Szybka instalacja)</td><td>Świetne (Baza Modrinth)</td><td>Tak</td></tr>
+                        <tr><td><strong>Badlion Client</strong></td><td>Turnieje PvP / Bezpieczeństwo</td><td>Tak (Zaawansowane opcje)</td><td>Ograniczone</td><td>Nie</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="bezpieczenstwo">
+            <h2 class="section-title">Dlaczego warto wybrać dedykowany launcher Premium?</h2>
+            <div class="guide-box">
+                <h3>Największe zalety korzystania z niezależnych klientów:</h3>
+                <ol class="guide-steps">
+                    <li><strong>Maksymalne FPS:</strong> Klienty takie jak Lunar czy Badlion posiadają autorskie poprawki kodu gry, optymalizujące renderowanie chunków i usuwające zbędne procesy obciążające procesor.</li>
+                    <li><strong>Bezpieczeństwo logowania:</strong> Wszystkie powyższe programy korzystają z bezpiecznego protokołu OAuth od Microsoftu – Twoje hasło nigdy nie trafia do twórców launchera, logujesz się bezpośrednio przez oficjalną stronę Xbox.</li>
+                    <li><strong>Wygoda tworzenia profili:</strong> W Prism Launcherze możesz mieć oddzielną instancję na czyste PvP (wersja 1.8.9), oddzielną na serwery techniczne (1.20.4 z modami) i oddzielną na najnowsze wersje testowe – foldery gier się nie mieszają, co zapobiega crashom i usuwaniu światów.</li>
+                    <li><strong>Brak śmieciowego oprogramowania:</strong> Profesjonalne aplikacje Premium nie posiadają irytujących banerów reklamowych ani ukrytych skryptów obciążających sieć.</li>
+                </ol>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zbychcraft.pl. Wszystkie materiały zoptymalizowane pod kątem wydajności i bezpieczeństwa kont graczy.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jak Zwiększyć FPS w Minecraft? Poradnik na Więcej FPS (2026)</title>
+    <meta name="description" content="Masz lagi w Minecraft? Zobacz jak zwiększyć FPS z 30 do 300+! Sprawdzone sposoby na optymalizację: Fabric, Sodium, ustawienia karty graficznej i RAM.">
+    <meta name="robots" content="index, follow">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-color: #161b22;
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --btn-hover: #1f6feb;
+            --table-header: #21262d;
+            --success-color: #238636;
+            --success-hover: #2ea043;
+            --danger-color: #f85149;
+            --code-color: #ff7b72;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 1rem;
+            text-align: center;
+            background-color: var(--container-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 0.75rem 0 0 0;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: var(--table-header);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-top: 4.5rem;
+            scroll-margin-top: 70px;
+        }
+
+        .click-box {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .click-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .guide-list {
+            padding-left: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .guide-list li {
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .guide-list strong {
+            color: #ffffff;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        tr:last-child td { border-bottom: none; }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            background-color: rgba(110, 118, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 6px;
+            color: var(--code-color);
+            font-size: 0.9rem;
+        }
+
+        .badge-hot {
+            background-color: var(--danger-color);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-left: 0.5rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ZbychCraft</h1>
+        <p>Koniec z lagami – Kompletny poradnik optymalizacji Minecraft</p>
+    </header>
+
+    <nav>
+        <a href="#mody-optymalizacyjne">Najlepsze Mody na FPS</a>
+        <a href="#ustawienia-gry">Optymalne Ustawienia Grafiki</a>
+        <a href="#przydzielanie-ram">Jak Przydzielić RAM</a>
+        <a href="index.html">Powrót do Strony Głównej</a>
+    </nav>
+
+    <main>
+
+        <section id="mody-optymalizacyjne">
+            <h2 class="section-title">1. Zainstaluj Mody, Które Zmieniają Wszystko <span class="badge-hot">HIT</span></h2>
+            <div class="click-box">
+                <h3>Zapomnij o OptiFine – Czas na Nową Erę</h3>
+                <p>W dzisiejszych wersjach Minecrafta klasyczny OptiFine nie radzi sobie już tak dobrze. Jeśli chcesz wycisnąć ze swojego komputera 2x, a nawet 3x więcej klatek na sekundę, musisz przejść na nowoczesny silnik modów.</p>
+                
+                <ul class="guide-list">
+                    <li><strong>Fabric Loader:</strong> Lekki i niezwykle szybki silnik uruchamiania modyfikacji, który sam w sobie nie obciąża komputera.</li>
+                    <li><strong>Sodium (Sód):</strong> Absolutny król optymalizacji. Całkowicie podmienia silnik renderowania grafiki w Minecraft Java Edition, potężnie zwiększając FPS-y zarówno na zintegrowanych, jak i dedykowanych kartach graficznych.</li>
+                    <li><strong>Lithium (Lit) & Phosphor:</strong> Dodatkowe mody optymalizujące fizykę gry, sztuczną inteligencję mobów oraz silnik generowania oświetlenia. Idealne, gdy Twój świat zaczyna spowalniać przez ogromne farmy czy mechanizmy.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ustawienia-gry">
+            <h2 class="section-title">2. Najlepsze Ustawienia Graficzne w Grze (Pod PvP i Płynność)</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Często zmiana zaledwie kilku suwaków w menu gry potrafi zlikwidować irytujące ścinanie (tzw. stuttering). Oto gotowa konfiguracja dla maksymalnej wydajności:</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 40%;">Opcja Graficzna</th>
+                            <th>Zalecane Ustawienie pod FPS</th>
+                            <th>Dlaczego to pomaga?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Grafika (Graphics)</strong></td><td><code style="color:#ff7b72;">Szybka (Fast)</code></td><td>Wyłącza zaawansowane przezroczystości liści i cieniowanie chmur, natychmiast odciążając procesor.</td></tr>
+                        <tr><td><strong>Zasięg renderowania (Render Distance)</strong></td><td><code style="color:#ff7b72;">2-8 Chunków</code></td><td>Najważniejsza opcja. Zmniejszenie zasięgu sprawia, że komputer przetwarza drastycznie mniej bloków wokół Ciebie.</td></tr>
+                        <tr><td><strong>Zasięg symulacji (Simulation Distance)</strong></td><td><code style="color:#ff7b72;">4 Chunki</code></td><td>Odpowiada za odległość, w której działają potwory, rośliny i mechanizmy. Kluczowe dla płynności gry.</td></tr>
+                        <tr><td><strong>Gładkie oświetlenie (Smooth Lighting)</strong></td><td><code style="color:#ff7b72;">Wyłączone (Off)</code></td><td>Usuwa skomplikowane obliczenia przejść tonalnych światła między blokami.</td></tr>
+                        <tr><td><strong>Cienie podmiotów (Entity Shadows)</strong></td><td><code style="color:#ff7b72;">Wyłączone (Off)</code></td><td>Wyłącza generowanie cieni pod mobami i graczami. Ogromny zysk wydajności na serwerach multiplayer i arenach PvP.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="przydzielanie-ram">
+            <h2 class="section-title">3. Jak Przydzielić Więcej Pamięci RAM do Minecraft?</h2>
+            <div class="click-box">
+                <h3>Zlikwiduj ścinki co kilka sekund jednym prostym ruchem</h3>
+                <p>Domyślnie oficjalny launcher Minecraft przydziela do gry tylko 2 GB pamięci RAM. Gdy eksplorujesz świat lub grasz na zaawansowanych serwerach, ta ilość szybko się zapełnia, powodując potężne, chwilowe zamrożenia ekranu.</p>
+                
+                <ol class="guide-list" style="padding-left: 1.5rem;">
+                    <li>Otwórz swój Launcher Minecraft i przejdź do zakładki <strong>"Instalacje" (Installations)</strong> na górze ekranu.</li>
+                    <li>Najedź myszką na wersję gry, w którą grasz, kliknij trzy kropki po prawej stronie i wybierz <strong>"Edytuj" (Edit)</strong>.</li>
+                    <li>Kliknij na samym dole przycisk <strong>"Więcej opcji" (More Options)</strong>.</li>
+                    <li>Znajdź pole tekstowe o nazwie <strong>"Argumenty JVM" (JVM Arguments)</strong>.</li>
+                    <li>Na samym początku kodu zobaczysz wpis <code>-Xmx2G</code>. Liczba oznacza ilość przydzielonego RAM-u. Zmień go na <code>-Xmx4G</code> (jeśli Twój komputer ma 8 GB RAM) lub na <code>-Xmx6G</code> (jeśli masz 16 GB RAM lub więcej).</li>
+                    <li>Kliknij <strong>"Zapisz" (Save)</strong> i uruchom grę. Różnicę w stabilności poczujesz natychmiast!</li>
+                </ol>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zbychcraft.pl. Poradnik stworzony z myślą o graczach szukających sprawdzonych i bezpiecznych metod na płynną rozgrywkę bez lagów.</p>
+    </footer>
+
+</body>
+</html>

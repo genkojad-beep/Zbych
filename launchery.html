@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZbychCraft.pl - Najlepsze Launchery Non-Premium Minecraft</title>
+    <meta name="description" content="Oficjalne repozytorium ZbychCraft.pl. Pobierz darmowe launchery Minecraft Non-Premium: Salwyrr, SKLauncher, Crystal Launcher i TLauncher. Stabilność, skiny i optymalizacja FPS.">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-color: #161b22;
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --btn-hover: #1f6feb;
+            --table-header: #21262d;
+            --success-color: #238636;
+            --success-hover: #2ea043;
+            --danger-color: #f85149;
+            --code-color: #ff7b72;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 1rem;
+            text-align: center;
+            background-color: var(--container-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 0.75rem 0 0 0;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: var(--table-header);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-top: 4.5rem;
+            scroll-margin-top: 70px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+        }
+
+        .card-header h3 {
+            margin: 0 0 0.5rem 0;
+            color: #ffffff;
+            font-size: 1.3rem;
+        }
+
+        .card-header .version {
+            font-size: 0.85rem;
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-body {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        .btn-success { background-color: var(--success-color); }
+        .btn-success:hover { background-color: var(--success-hover); }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+        .btn-secondary:hover { background-color: var(--border-color); }
+
+        .guide-box {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .guide-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .guide-steps {
+            padding-left: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .guide-steps li {
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        .table-link { color: var(--accent-color); text-decoration: none; }
+        .table-link:hover { text-decoration: underline; }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ZbychCraft</h1>
+        <p>Centrum Pobierania – Najlepsze Bezpieczne Launchery Non-Premium</p>
+    </header>
+
+    <nav>
+        <a href="#glowne-launchery">Zalecane Launchery Non-Premium</a>
+        <a href="#porownanie">Tabela Porównawcza</a>
+        <a href="#poradnik-skiny">Instrukcja Instalacji Skinów</a>
+        <a href="index.html">Powrót do Strony Głównej</a>
+    </nav>
+
+    <main>
+        
+        <section id="glowne-launchery">
+            <h2 class="section-title">Stabilne i Darmowe Launchery (Non-Premium)</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Salwyrr Client</h3>
+                        <div class="version">Status: Non-Premium / Premium (Zalecany pod PvP)</div>
+                    </div>
+                    <div class="card-body">
+                        Jeden z najlepszych darmowych launcherów stworzonych z myślą o PvP oraz słabszych komputerach[cite: 2]. Posiada wbudowany potężny silnik optymalizacji, gotowe paczki modów pvp na widoku (np. CPS counter, ArmorHUD) oraz autorski, darmowy system przylądków i skinów[cite: 2]. Nie obciąża systemu i gwarantuje stabilny poziom FPS[cite: 2].
+                    </div>
+                    <a href="https://www.salwyrr.com/" target="_blank" class="btn btn-success">Pobierz Salwyrr Client</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>SKLauncher</h3>
+                        <div class="version">Status: Non-Premium / Premium (Czysty i Bez Reklam)</div>
+                    </div>
+                    <div class="card-body">
+                        Niezwykle nowoczesny program, w pełni przetłumaczony na język polski, zaprojektowany w minimalistycznym stylu Material Design[cite: 2]. Umożliwia grę bez posiadania płatnego konta, nie zawiera uciążliwych reklam i złośliwego oprogramowania[cite: 2]. Wspiera instalację Fabric/Forge jednym kliknięciem oraz obsługuje darmowe skiny HD[cite: 2].
+                    </div>
+                    <a href="https://skmedix.pl/" target="_blank" class="btn btn-success">Pobierz SKLauncher</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Crystal Launcher</h3>
+                        <div class="version">Status: Non-Premium / Premium (Polski Projekt)</div>
+                    </div>
+                    <div class="card-body">
+                        Kultowy, rozbudowany polski launcher z ogromną bazą gotowych paczek modyfikacji (np. paczki techniczne, przygodowe czy pod PvP)[cite: 2]. Posiada wbudowany własny system zarządzania profilami, darmowy katalog skinów oraz błyskawiczną pomoc techniczną w języku polskim[cite: 2]. Idealny do grania na serwerach ze znajomymi[cite: 2].
+                    </div>
+                    <a href="https://crystal-launcher.pl/" target="_blank" class="btn btn-secondary">Pobierz Crystal Launcher</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>TLauncher</h3>
+                        <div class="version">Status: Non-Premium / Premium (Klasyczny Wybór)</div>
+                    </div>
+                    <div class="card-body">
+                        Najbardziej znany na świecie program do uruchamiania gry w trybie darmowym[cite: 2]. Pozwala na natychmiastowe testowanie dowolnej wersji Minecrafta (od najstarszych alf do najnowszych snapshotów)[cite: 2]. Posiada wbudowany menedżer modów pozwalający tworzyć własne modpacki bezpośrednio z poziomu menu[cite: 2].
+                    </div>
+                    <a href="https://tlauncher.org/" target="_blank" class="btn btn-secondary">Pobierz TLauncher</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="porownanie">
+            <h2 class="section-title">Porównanie Funkcji Launcherów</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nazwa Launchera</th>
+                            <th>Wbudowane Mody PvP</th>
+                            <th>Darmowe Skiny</th>
+                            <th>Prędkość Działania</th>
+                            <th>Interfejs po Polsku</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Salwyrr Client</strong></td><td>Tak (Bardzo bogate)[cite: 2]</td><td>Tak[cite: 2]</td><td>Ekstremalnie szybka[cite: 2]</td><td>Tak[cite: 2]</td></tr>
+                        <tr><td><strong>SKLauncher</strong></td><td>Nie (Wymaga Fabric)[cite: 2]</td><td>Tak (Również HD)[cite: 2]</td><td>Bardzo szybka[cite: 2]</td><td>Tak[cite: 2]</td></tr>
+                        <tr><td><strong>Crystal Launcher</strong></td><td>Tak (Gotowe paczki)[cite: 2]</td><td>Tak[cite: 2]</td><td>Średnia/Dobra[cite: 2]</td><td>Tak (Własny polski kod)[cite: 2]</td></tr>
+                        <tr><td><strong>TLauncher</strong></td><td>Nie (Wymaga modów)[cite: 2]</td><td>Tak[cite: 2]</td><td>Dobra[cite: 2]</td><td>Tak[cite: 2]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="poradnik-skiny">
+            <h2 class="section-title">Poradnik – Jak ustawić darmowy skin bez konta Premium?</h2>
+            <div class="guide-box">
+                <h3>Instrukcja instalacji własnej skórki krok po kroku:</h3>
+                <ol class="guide-steps">
+                    <li>Zarejestruj darmowe konto na oficjalnej stronie wybranego launchera (np. na <em>skmedix.pl</em> lub <em>tlauncher.org</em>)[cite: 2].</li>
+                    <li>Pobierz dowolny plik skina w formacie `.png` (np. ze strony NovaSkin lub NameMC).</li>
+                    <li>Zaloguj się na profil na stronie www launchera i przejdź do zakładki <strong>Upload Skin (Wgraj Skin)</strong>, a następnie wybierz swój pobrany plik.</li>
+                    <li>Otwórz zainstalowany program na komputerze, zaloguj się tymi samymi danymi konta i upewnij się, że włączona jest opcja powiązania konta ze skinami.</li>
+                    <li>Twój skin będzie idealnie widoczny na serwerach obsługujących darmowe systemy skórek!</li>
+                </ol>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zbychcraft.pl. Wszystkie materiały i darmowe działy zoptymalizowane pod algorytmy wyszukiwarki Google[cite: 2].</p>
+    </footer>
+
+</body>
+</html>
