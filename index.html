@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1PR4NRH944"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1PR4NRH944');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZbychCraft.pl - Centrum Pobierania, Poradniki, Silniki i Optymalizacja Minecraft</title>
@@ -85,6 +76,13 @@
             text-decoration: underline;
         }
 
+        /* Styl dla wyróżnienia linków do osobnych podstron */
+        nav a.page-link {
+            color: #ff7b72;
+            border-right: 1px solid var(--border-color);
+            padding-right: 0.5rem;
+        }
+
         main {
             max-width: 1100px;
             margin: 3rem auto;
@@ -147,15 +145,6 @@
             margin-bottom: 1.5rem;
         }
 
-        .card-meta {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: auto;
-            margin-bottom: 1rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 0.75rem;
-        }
-
         .btn {
             display: block;
             text-align: center;
@@ -183,7 +172,6 @@
         }
         .btn-secondary:hover { background-color: var(--border-color); }
 
-        /* PORADNIKI & ROZWIĄZANIA BŁĘDÓW */
         .guide-box {
             background-color: var(--container-color);
             border: 1px solid var(--border-color);
@@ -222,8 +210,6 @@
             color: var(--text-main);
         }
 
-        .guide-steps li strong { color: #ffffff; }
-
         code {
             background-color: var(--bg-color);
             padding: 0.2rem 0.4rem;
@@ -252,7 +238,6 @@
             word-break: break-all;
         }
 
-        /* TABELA */
         .table-container {
             width: 100%;
             overflow-x: auto;
@@ -284,7 +269,6 @@
         .table-link { color: var(--accent-color); text-decoration: none; }
         .table-link:hover { text-decoration: underline; }
 
-        /* FAQ */
         .faq-item {
             background-color: var(--container-color);
             border: 1px solid var(--border-color);
@@ -306,16 +290,6 @@
             margin: 0;
         }
 
-        .alert-box {
-            background-color: rgba(240, 179, 57, 0.1);
-            border: 1px solid #f0b339;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            color: #f0b339;
-            font-size: 0.95rem;
-        }
-
         footer {
             text-align: center;
             padding: 3rem 1rem;
@@ -334,7 +308,12 @@
     </header>
 
     <nav>
+        <a href="pluginy.html" class="page-link">Osobne Pluginy</a>
+        <a href="poradniki.html" class="page-link">Osobne Poradniki</a>
+        <a href="paczki.html" class="page-link">Osobne Paczki</a>
+        
         <a href="#pluginy">Autorskie Pluginy</a>
+        <a href="#paczki-txt">Paczki PvP (15 Packów!)</a>
         <a href="#silniki">Silniki Serwerowe</a>
         <a href="#launchery">Launchery</a>
         <a href="#optifine">OptiFine</a>
@@ -344,24 +323,22 @@
         <a href="#wersje-java">Wersje Java</a>
         <a href="#poradniki-instalacji">Instrukcje Instalacji</a>
         <a href="#komendy-mc">Komendy i WorldEdit</a>
-        <a href="#paczki-txt">Paczki PvP</a>
         <a href="#testy-lacza">Testy Łącza i Ping</a>
         <a href="#faq">FAQ</a>
     </nav>
 
     <main>
         
-        <!-- AUTORSKIE PLUGINY -->
         <section id="pluginy">
             <h2 class="section-title">Autorskie Pluginy Spigot / Paper</h2>
             <div class="grid">
                 <div class="card">
                     <div class="card-header">
                         <h3>AntekSklep</h3>
-                        <div class="version">Paper 1.20.4 (v7.1) .JAR</div>
+                        <div class="version">Paper 1.20+ (v7.1) .JAR</div>
                     </div>
                     <div class="card-body">
-                        Kompletny system ekonomii serwerowej zawierający wirtualne portfele graczy, zautomatyzowane menu GUI, przelewy, bezpieczną naprawę przedmiotów oraz pełną obsługę doładowań z poziomu RCON i konsoli serwera.
+                        Kompletny system ekonomii serwerowej obsługujący wirtualne portfele graczy. Zawiera zaawansowane menu GUI sklepu, bezpieczne przelewy bankowe pod komendą <code>/pay</code>, wbudowany system naprawy przedmiotów (<code>/repair</code> i <code>/repairall</code>) oraz komendę administracyjną <code>/addmoney</code> w pełni kompatybilną z konsolą i systemami RCON.
                     </div>
                     <a href="AntekSklep-1.0.jar" class="btn">Pobierz plugin</a>
                 </div>
@@ -369,43 +346,170 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>LootBoxPlugin</h3>
-                        <div class="version">Paper 1.20.4 (v18.0) .JAR</div>
+                        <div class="version">Paper 1.20+ (v18.0) .JAR</div>
                     </div>
                     <div class="card-body">
-                        Zaawansowane skrzynie z nagrodami. Posiada wbudowany system graficznego podglądu dropów w GUI, mechanikę kluczy oraz animowaną ruletkę losowania wyświetlaną na trójwymiarowych stojakach nad głowami graczy.
+                        Zaawansowany system skrzyń (afk, rzadka, epicka, anarchiczna) wyposażony w graficzne podglądy dropów z dokładnymi szansami procentowymi w GUI. Posiada w pełni animowaną ruletkę losowania wyświetlaną bezpośrednio nad głową gracza przy użyciu stojaków na zbroje (Armor Stands) oraz dźwięków. Komendy operacyjne: <code>/givechest</code>, <code>/givekeychest</code>.
                     </div>
-                    <a href="KitsPlugin.jar" class="btn">Pobierz plugin</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3>ZmiankiPlus</h3>
-                        <div class="version">Paper 1.20.4 (v2.0) .JAR</div>
-                    </div>
-                    <div class="card-body">
-                        Rozszerzenie mechaniki PvP wprowadzające system ulepszania broni i zbroi u kowala za pomocą diamentów. Zapewnia losowe, procentowe bonusy do obrażeń lub ochrony oraz unikalny system bojowych papug naramiennych.
-                    </div>
-                    <a href="ZmiankiPlus-1.0.jar" class="btn">Pobierz plugin</a>
+                    <a href="LootBoxPlugin.jar" class="btn">Pobierz plugin</a>
                 </div>
 
                 <div class="card">
                     <div class="card-header">
                         <h3>Excalibur</h3>
-                        <div class="version">Paper 1.20.4 .JAR</div>
+                        <div class="version">Paper 1.20+ .JAR</div>
                     </div>
                     <div class="card-body">
-                        Narzędzie dodające legendarny oręż za pomocą komendy /dajmiecz. Miecz posiada zniesione limity zaklęć (Ostrość VIII, Niezniszczalność V, Zaklęty Ogień IV, Mending) oraz modyfikator dodający 2 bonusowe serca życia podczas trzymania broni.
+                        Narzędzie dodające legendarny oręż za pomocą komendy <code>/dajmiecz</code> zabezpieczonej autoryzacją dla administratora. Miecz posiada zniesione limity zaklęć (Ostrość VIII, Niezniszczalność V, Zaklęty Ogień IV, Mending), Custom Model Data (12345) pod własne Resource Packi oraz atrybut dodający 2 bonusowe serca życia podczas trzymania broni.
                     </div>
                     <a href="Excalibur.jar" class="btn">Pobierz plugin</a>
                 </div>
             </div>
         </section>
 
+        <section id="paczki-txt">
+            <h2 class="section-title">Najlepsze Paczki Tekstur (Texture Packi) do PvP</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Zestawienie oficjalnych, przetestowanych i bezpiecznych paczek zasobów zoptymalizowanych pod kątem maksymalnej widoczności oraz podbicia FPS.</p>
 
-        <!-- SILNIKI SERWEROWE -->
+            <h3 style="color: #ffffff; margin-top: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">[ KLASYKI 1.8.9 - BEDWARS, SKYWARS, DUELS ]</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>1. Luvonox 150K FPS Pack</h3>
+                        <div class="version">16x (Original - Red)</div>
+                    </div>
+                    <div class="card-body">Niezwykle popularna i płynna paczka w czerwonej kolorystyce. Maksymalizuje FPS-y, ma świetnie wycięte miecze i idealny low fire do walki.</div>
+                    <a href="https://pvprp.com/pack?p=392" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>2. SammyGreen SammyFault</h3>
+                        <div class="version">16x</div>
+                    </div>
+                    <div class="card-body">Stworzony dla znanego YouTubera od BedWars. Charakteryzuje się wyrazistymi kolorami wełny i świetnie wyglądającymi narzędziami.</div>
+                    <a href="https://resourcepacks.gg/pl/packs/sammyfault-16x" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>3. Chroma (by ItsMarloe)</h3>
+                        <div class="version">32x</div>
+                    </div>
+                    <div class="card-body">Bardzo płynny, "gładki" pack z delikatnymi, pastelowymi kolorami. Cudownie wyglądają w nim diamentowe przedmioty.</div>
+                    <a href="https://www.planetminecraft.com/texture-pack/chroma-32x/" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>4. Huahwi Defscape Revamp</h3>
+                        <div class="version">16x</div>
+                    </div>
+                    <div class="card-body">Prawdziwa legenda od jednego z pierwszych królów PvP. Wygląda blisko defaultowego Minecrafta, ale jest idealnie zoptymalizowany pod walkę.</div>
+                    <a href="https://www.planetminecraft.com/texture-pack/huahwi-defscape-16x-revamp-by-julio-xlqmited/" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>5. Bedless Noob 200k Pack</h3>
+                        <div class="version">16x</div>
+                    </div>
+                    <div class="card-body">Pack stworzony specjalnie do techniki Godbridge i szybkiego budowania. Bardzo charakterystyczne, ciemne bloki z wyraźnymi krawędziami.</div>
+                    <a href="https://resourcepacks.gg/en/packs/bedlessnoob-200k" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+            </div>
+
+            <h3 style="color: #ffffff; margin-top: 3rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">[ PACZKI 1.16+ / 1.20+ - CRYSTAL, NETHERITE POTTS, AXE ]</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>6. Luv (Luvonox Crystal Edit)</h3>
+                        <div class="version">16x</div>
+                    </div>
+                    <div class="card-body">Absolutny hit do nowożytnego PvP. Krótkie miecze, przezroczysta tarcza (nie zasłania ekranu!) i czyste tekstury kryształów Endu.</div>
+                    <a href="https://www.mediafire.com/file/6ad7s0y88isi6k1/%2521_%25C2%25A7ba%25C2%25A73z%25C2%25A7bure%25C2%25A7f._%25C2%25A78%255B%25C2%25A73256%25C2%25A77x%25C2%25A78%255D.zip/file" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>7. Solrflare / Solr</h3>
+                        <div class="version">16x</div>
+                    </div>
+                    <div class="card-body">Bardzo popularny zestaw do Crystal PvP. Świetnie wyróżnia nałożone na siebie efekty mikstur i ma doskonale widoczne animacje niszczenia bloków.</div>
+                    <a href="https://www.planetminecraft.com/texture-pack/solr-16x/" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>8. Black Tint</h3>
+                        <div class="version">16x</div>
+                    </div>
+                    <div class="card-body">Mroczny, niezwykle gładki i dający duży zastrzyk FPS pack stworzony pod dynamiczną walkę na nowszych wersjach gry.</div>
+                    <a href="https://pvprp.com/pack?p=464" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+            </div>
+
+            <h3 style="color: #ffffff; margin-top: 3rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">[ ESTETYCZNE I "SMOOTH" - CZYSTE TEKSTURY ]</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>9. Luma</h3>
+                        <div class="version">16x</div>
+                    </div>
+                    <div class="card-body">Bardzo minimalistyczny, jasny i czysty pack pod Bedwars oraz Arenę PvP, który nie obciąża komputera i działa płynnie na wersjach aż do 1.20+.</div>
+                    <a href="https://modrinth.com/resourcepack/luma-16x" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>10. Amethyst PvP</h3>
+                        <div class="version">16x</div>
+                    </div>
+                    <div class="card-body">Przepiękny pack oparty na motywach ametystu. Krótkie fioletowe miecze, czyste linie i świetna widoczność hitboxów elementów otoczenia.</div>
+                    <a href="https://modrinth.com/resourcepack/amethyst-pvp" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>11. PvP Light Blue</h3>
+                        <div class="version">32x</div>
+                    </div>
+                    <div class="card-body">Przepiękna, jasnoniebieska kolorystyka. Narzędzia i miecze mają unikalny, ostry kształt, który daje ogromną satysfakcję podczas zadawania hitów.</div>
+                    <a href="https://modrinth.com/resourcepack/pvp-32x-light-blue" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>12. Nebula</h3>
+                        <div class="version">32x</div>
+                    </div>
+                    <div class="card-body">Fantastyczna, ciemnoniebieska paczka z customowym niebem (skybox) i ostrymi, perfekcyjnie wyciętymi mieczami do dynamicznych pojedynków.</div>
+                    <a href="https://www.planetminecraft.com/texture-pack/nebula-32x-pvp-texture-pack-1-8-9/" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+            </div>
+
+            <h3 style="color: #ffffff; margin-top: 3rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">[ MAKSYMALNE FPS & REVAMP - DLA SŁABSZYCH PC ]</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>13. Tight專</h3>
+                        <div class="version">32x (Shortsword)</div>
+                    </div>
+                    <div class="card-body">Jeden z najbardziej ikonicznych i najlepiej zoptymalizowanych klasyków w historii. Ma piękne, krótkie miecze i bardzo przejrzyste menu.</div>
+                    <a href="https://www.planetminecraft.com/texture-pack/tight-32x-recolor-pack-v2/" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>14. Default Edit PvP</h3>
+                        <div class="version">Low Fire</div>
+                    </div>
+                    <div class="card-body">Klasyczny, odświeżony wygląd Minecrafta ze zmniejszonym ogniem, niską tarczą oraz skróconymi mieczami dla maksymalnej widoczności pola walki.</div>
+                    <a href="https://www.planetminecraft.com/texture-pack/default-edit-pvp-pack/" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>15. Bare Bones</h3>
+                        <div class="version">16x</div>
+                    </div>
+                    <div class="card-body">Oficjalny styl ze zwiastunów Mojangu. Usuwa wszelkie zbędne cieniowania bloków, co drastycznie zwiększa liczbę klatek na sekundę na każdym komputerze.</div>
+                    <a href="https://www.curseforge.com/minecraft/texture-packs/bare-bones-texture-pack" target="_blank" class="btn btn-secondary">Pobierz Pack</a>
+                </div>
+            </div>
+        </section>
+
         <section id="silniki">
             <h2 class="section-title">Wydajne Silniki Serwerowe Minecraft</h2>
-            <p style="color: var(--text-muted); margin-bottom: 2rem;">Wybór odpowiedniego rdzenia serwera decyduje o stabilności, braku lagów (TPS na poziomie 20.0) oraz optymalizacji wątków procesora.</p>
             <div class="grid">
                 <div class="card">
                     <div class="card-header">
@@ -453,8 +557,6 @@
             </div>
         </section>
 
-
-        <!-- LAUNCHERY -->
         <section id="launchery">
             <h2 class="section-title">Launchery Wspierające Konta Premium i Non-Premium</h2>
             <div class="grid">
@@ -497,7 +599,7 @@
                         <div class="version">Status: Premium i Non-Premium</div>
                     </div>
                     <div class="card-body">
-                        Umożliwia łatwą instalację dowolnej wersji gry, instalację paczek modów jednym kliknięciem oraz wspiera system customowych skinów.
+                        Umożliwia łatwą instalację dowolnej wersji gry, instalację paczek modów jednym klikniem oraz wspiera system customowych skinów.
                     </div>
                     <a href="https://tlauncher.org/" target="_blank" class="btn btn-secondary">Odwiedź stronę</a>
                 </div>
@@ -526,8 +628,6 @@
             </div>
         </section>
 
-
-        <!-- OPTIFINE -->
         <section id="optifine">
             <h2 class="section-title">OptiFine - Klasyczna Optymalizacja i Przylądki</h2>
             <div class="grid">
@@ -544,8 +644,6 @@
             </div>
         </section>
 
-
-        <!-- MODYFIKACJE OPTYMALIZACYJNE FABRIC -->
         <section id="mody-fabric">
             <h2 class="section-title">Kluczowe Narzędzia i Modyfikacje Optymalizacyjne (Fabric)</h2>
             <div class="table-container">
@@ -568,8 +666,6 @@
             </div>
         </section>
 
-
-        <!-- ROZWIĄZANIA POPULARNYCH BŁĘDÓW (CRASH & ERROR FIXER) -->
         <section id="naprawa-bledow">
             <h2 class="section-title">Rozwiązywanie Problemów – Crash & Error Fixer</h2>
             
@@ -578,9 +674,9 @@
                 <h3>Jak naprawić błąd Exit Code 1?</h3>
                 <p>Ten błąd pojawia się najczęściej, gdy gra napotka niekompatybilne modyfikacje w folderze <code>mods</code> lub gdy używasz niewłaściwej wersji środowiska Java.</p>
                 <ol class="guide-steps">
-                    <li><strong>Sprawdź logi:</strong> Wejdź do folderu <code>.minecraft\crash-reports</code> i otwórz najnowszy plik tekstowy. Znajdziesz tam dokładną nazwę moda, który wywołał błąd.</li>
+                    <li><strong>Sprawdź logi:</strong> Wejdź do folderu <code>.minecraft\crash-reports</code> i otwórz najnowszy plik tekstowy. Znajdziesz tam dokładną pracę lub nazwę moda, który wywołał błąd.</li>
                     <li><strong>Zaktualizuj lub usuń mody:</strong> Upewnij się, że KAŻDY mod w folderze pasuje dokładnie do Twojej wersji gry (np. nie mieszaj modów z wersji 1.20.2 z wersją 1.20.4).</li>
-                    <li><strong>Zaktualizuj sterowniki karty graficznej:</strong> Przestarzałe sterowniki GPU uniemożliwiają poprawne działanie nowych wersji bibliotek OpenGL.</li>
+                    <li><strong>Zaktualizuj sterowniki karty graficznej:</strong> Przestarzałe sterowniki GPU uniemożliwiają popisowe działanie nowych wersji bibliotek OpenGL.</li>
                 </ol>
             </div>
 
@@ -592,24 +688,16 @@
             </div>
         </section>
 
-
-        <!-- PARAMETRY STARTOWE (JAVA ARGUMENTS) -->
         <section id="flagi-java">
             <h2 class="section-title">Optymalizacja Parametrów Startowych – Flagi Aikara</h2>
-            <p style="color: var(--text-muted);">Wklejenie tych zaawansowanych parametrów w pole "Argumenty JVM" (Java Arguments) w launcherze drastycznie zoptymalizuje proces odśmiecania pamięci (Garbage Collector), co zlikwiduje mikroprzycięcia obrazu (Stuttering) podczas dynamicznych walk PvP.</p>
-            
             <div class="copy-block">
                 <pre>-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1ReservePercent=20 -XX:G1HeapRegionSize=32m -XX:G1MixedGCCountTarget=8 -XX:InitiatingHeapOccupancyPercent=15</pre>
             </div>
             <p style="color: var(--text-muted); font-size: 0.9rem;"><em>Wskazówka: Aby zmienić przydział pamięci RAM, dodaj na samym początku parametr <code>-Xmx4G</code> (gdzie 4G oznacza przydzielenie 4 gigabajtów pamięci RAM).</em></p>
         </section>
 
-
-        <!-- KONFIGURACJA JAVA -->
         <section id="wersje-java">
             <h2 class="section-title">Jaką wersję środowiska Java wybrać?</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Nowe wersje Minecrafta nie uruchomią się na starej wersji Javy 8. Dopasuj środowisko JDK do wersji gry, na której grasz:</p>
-            
             <div class="table-container">
                 <table>
                     <thead>
@@ -640,8 +728,6 @@
             </div>
         </section>
 
-
-        <!-- PORADNIKI INSTALACJI -->
         <section id="poradniki-instalacji">
             <h2 class="section-title">Instrukcje Krok po Kroku – Instalacja i Tworzenie Serwera</h2>
             
@@ -678,24 +764,10 @@ pause</pre>
                     <li>Odpalać serwer będziesz plikiem <code>start.bat</code>. Po pierwszym uruchomieniu otwórz plik <code>eula.txt</code> i zmień wartość na <code>eula=true</code>.</li>
                 </ol>
             </div>
-
-            <div class="guide-box">
-                <h3>Jak zainstalować pluginy na serwerze?</h3>
-                <ol class="guide-steps">
-                    <li>Upewnij się, że Twój serwer działa na silniku obsługującym wtyczki (np. **Paper** lub **Purpur**).</li>
-                    <li>Pobierz plik pluginu z rozszerzeniem <code>.jar</code> (np. nasz autorski plik <code>AntekSklep-1.0.jar</code>).</li>
-                    <li>Przenieś plik bezpośrednio do katalogu o nazwie <code>plugins</code> w głównym folderze serwera.</li>
-                    <li>Zrestartuj serwer lub wpisz komendę <code>reload</code> w konsoli, aby załadować konfigurację.</li>
-                </ol>
-            </div>
         </section>
 
-
-        <!-- SPIS NAJWAŻNIEJSZYCH KOMEND (CHEATSHEET) -->
         <section id="komendy-mc">
-            <h2 class="section-title">Ściągawka z Komend – Konsola i WorldEdit</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Zestawienie komend administratury i podstawowych narzędzi do edycji struktur:</p>
-            
+            <h2 class="section-title">Ściągawka z Komend – Konsola, Pluginy i WorldEdit</h2>
             <div class="table-container">
                 <table>
                     <thead>
@@ -706,64 +778,33 @@ pause</pre>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>Zarządzanie</strong></td><td><code>/op [nick]</code></td><td>Nadaje pełne uprawnienia administratora serwera danemu graczowi.</td></tr>
-                        <tr><td><strong>Diagnostyka</strong></td><td><code>/timings on</code> / <code>/timings paste</code></td><td>Uruchamia zaawansowany test wydajności serwera i generuje raport o lagach.</td></tr>
-                        <tr><td><strong>WorldEdit</strong></td><td><code>//wand</code></td><td>Daje drewnianą siekierkę służącą do zaznaczania pozycji regionu (Pozycja 1 i Pozycja 2).</td></tr>
-                        <tr><td><strong>WorldEdit</strong></td><td><code>//set [blok]</code></td><td>Wypełnia cały zaznaczony obszar wybranym rodzajem bloku (np. <code>//set quartz_block</code>).</td></tr>
-                        <tr><td><strong>WorldEdit</strong></td><td><code>//copy</code> / <code>//paste</code></td><td>Kopiuje zaznaczoną strukturę względem pozycji gracza i wkleja ją w nowym miejscu.</td></tr>
+                        <tr><td><strong>AntekSklep</strong></td><td><code>/money</code></td><td>Sprawdza aktualny stan konta wirtualnego gracza.</td></tr>
+                        <tr><td><strong>AntekSklep</strong></td><td><code>/pay [gracz] [kwota]</code></td><td>Przelewa bezpiecznie określoną kwotę innemu graczowi online.</td></tr>
+                        <tr><td><strong>AntekSklep</strong></td><td><code>/addmoney [gracz] [kwota]</code></td><td>Komenda dla konsoli/OP – dodaje środki prosto z Generatora Monet.</td></tr>
+                        <tr><td><strong>AntekSklep</strong></td><td><code>/repair</code> / <code>/repairall</code></td><td>Naprawia trzymany przedmiot lub cały ekwipunek gracza.</td></tr>
+                        <tr><td><strong>LootBox</strong></td><td><code>/givechest [typ] [gracz]</code></td><td>Daje wybranemu graczowi wybraną skrzynię w formie główki.</td></tr>
+                        <tr><td><strong>LootBox</strong></td><td><code>/givekeychest [typ] [gracz]</code></td><td>Wręcza klucz (Tripwire Hook) pasujący do danego typu skrzyni.</td></tr>
+                        <tr><td><strong>WorldEdit</strong></td><td><code>//wand</code></td><td>Daje drewnianą siekierkę służącą do zaznaczania pozycji regionu.</td></tr>
+                        <tr><td><strong>WorldEdit</strong></td><td><code>//set [blok]</code></td><td>Wypełnia cały zaznaczony obszar wybranym blokiem.</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-
-        <!-- PACZKI TXT -->
-        <section id="paczki-txt">
-            <h2 class="section-title">Paczki Tekstur (TXT) 1.8.9 - BedWars, SkyWars, Duels</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Luvonox 150K Pack</h3>
-                        <div class="version">Modyfikacja .ZIP</div>
-                    </div>
-                    <div class="card-body">
-                        Niezwykle popularna i płynna paczka w czerwonej kolorystyce. Maksymalizuje FPS-y, ma świetnie wycięte miecze i low fire do walki.
-                    </div>
-                    <a href="https://pvprp.com/pack?p=392" target="_blank" class="btn btn-secondary">Pobierz Resource Pack</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3>SammyGreen SammyFault</h3>
-                        <div class="version">Modyfikacja .ZIP</div>
-                    </div>
-                    <div class="card-body">
-                        Stworzony dla znanego YouTubera od BedWars. Charakteryzuje się wyrazistymi kolorami wełny i świetnie wyglądającymi narzędziami.
-                    </div>
-                    <a href="https://resourcepacks.gg/pl/packs/sammyfault-16x" target="_blank" class="btn btn-secondary">Pobierz Resource Pack</a>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- TESTOWANIE POŁĄCZENIA SIECIOWEGO -->
         <section id="testy-lacza">
             <h2 class="section-title">Jak sprawdzić stabilność połączenia z serwerem (Ping & MTR)?</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Jeśli podczas walki przeciwnicy cofają się lub Twoje uderzenia nie rejestrują się prawidłowo, problemem może być utrata pakietów (Packet Loss).</p>
             <div class="guide-box">
                 <h3>Testowanie poleceniem Ping w Windows:</h3>
                 <ol class="guide-steps">
                     <li>Otwórz menu Start, wpisz <code>cmd</code> i uruchom Wiersz Polecenia.</li>
-                    <li>Wpisz komendę testującą (zastąp adres ip adresem swojego ulubionego serwera):
+                    <li>Wpisz komendę testującą:
                         <pre>ping -t craftmc.pl</pre>
                     </li>
-                    <li>Obserwuj wartość wyrażoną w milisekundach (np. <code>time=15ms</code>). Jeśli wartość nagle skacze do kilkuset milisekund lub pojawia się komunikat "Upłynął limit czasu żądania", oznacza to problemy po stronie Twojego dostawcy internetu.</li>
+                    <li>Obserwuj wartość wyrażoną w milisekundach (np. <code>time=15ms</code>). Jeśli wartość skacze do kilkuset milisekund, oznacza to lag łącza internetowego.</li>
                 </ol>
             </div>
         </section>
 
-
-        <!-- SEKCJA FAQ -->
         <section id="faq">
             <h2 class="section-title">Najczęściej Zadawane Pytania (FAQ) – Centrum Pomocy</h2>
             
@@ -773,18 +814,13 @@ pause</pre>
             </div>
 
             <div class="faq-item">
-                <p class="faq-question">2. Co zrobić, jeśli po włączeniu paczki zasobów 32x32 nie widzę customowego nieba?</p>
+                <p class="faq-question">2. Co zrobić, jeśli po włączeniu paczki zasobów nie widzę customowego nieba?</p>
                 <p class="faq-answer">Większość zaawansowanych paczek PvP wymaga odpowiednich modyfikacji graficznych do renderowania niestandardowego nieba. Jeśli używasz czystego silnika Fabric z modem Sodium, musisz doinstalować modyfikację emulującą tę funkcję, na przykład Fabric SkyBoxes lub Animatica.</p>
             </div>
 
             <div class="faq-item">
                 <p class="faq-question">3. Czym różni się silnik Fabric od Forge i który silnik wybrać do PvP?</p>
                 <p class="faq-answer">Forge to potężne środowisko, idealne pod ogromne modyfikacje techniczne i przygodowe. Do dynamicznej walki PvP zdecydowanie lepszym wyborem jest Fabric – jest niesamowicie lekki, uruchamia się kilkukrotnie szybciej i współpracuje z nowoczesnymi modami optymalizacyjnymi (takimi jak Sodium czy Lithium).</p>
-            </div>
-
-            <div class="faq-item">
-                <p class="faq-question">4. Czy gracze korzystający z launcherów Non-Premium mogą dołączyć na każdy serwer?</p>
-                <p class="faq-answer">Nie. Serwery Minecraft dzielą się na dwa główne typy: Premium (dostępne tylko dla osób posiadających oficjalne konto zakupione od Microsoft) oraz Non-Premium (gdzie właściciel wyłączył weryfikację kont w pliku konfiguracyjnym ustawiając parametr <code>online-mode=false</code>).</p>
             </div>
         </section>
 
